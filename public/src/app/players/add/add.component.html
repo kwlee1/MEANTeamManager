@@ -1,0 +1,16 @@
+<form (submit)="onSubmit()" #formData='ngForm' class="section">
+    <h3>Add Player</h3>
+    <p>
+      <label for="name">Player Name:</label>
+      <input type="text" name="name" id="name" required minlength="2" [(ngModel)]="player.name" #name="ngModel" class="field">
+    </p>
+    <p class="validation">
+      <span *ngIf="name.errors?.required && name.dirty" class="error">*Name is required</span>
+      <span *ngIf="name.errors?.minlength && name.dirty" class="error">*Name must be at least 2 characters in length</span>
+    </p>
+    <p>
+      <label for="position">Preferred Position:</label>
+      <input type="text" name="position" id="position" [(ngModel)]="player.position" class="field">
+    </p>
+    <input type="submit" value="Add" [disabled]="formData.invalid" class="formsubmit">
+  </form>

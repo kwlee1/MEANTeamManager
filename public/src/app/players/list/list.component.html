@@ -1,0 +1,7 @@
+<p>
+  list works!
+</p>
+
+<ul>
+  <li *ngFor="let player of players"><a [routerLink]="['/status']">{{player.name}}</a>{{player.position}} {{player.createdAt}} <button (click)="onDelete(player._id)">Delete</button></li>
+</ul>

@@ -1,0 +1,8 @@
+<h1>Hi {{user.name}}</h1>
+<p><a [routerLink]="['']">Logout</a></p>
+<h2> <a [routerLink]="['/players','list']">Manage Players</a></h2>
+<h2> <a [routerLink]="['/status']">Manage Player Status</a></h2>
+<p>--------------------------------------</p>
+<h2> <a [routerLink]="['/players','list']">List</a></h2>
+<h2> <a [routerLink]="['/players','add']">Add Player</a></h2>
+<router-outlet></router-outlet> 

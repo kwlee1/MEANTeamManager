@@ -1,0 +1,23 @@
+<h1>Hi {{user.name}}</h1>
+<p><a [routerLink]="['']">Logout</a></p>
+<h2> <a [routerLink]="['/players','list']">Manage Players</a></h2>
+<h2> <a [routerLink]="['/status']">Manage Player Status</a></h2>
+<h3>Status Page</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Player Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let player of players; let idx=index">
+            <td><a [routerLink]="['/status/game',game]">{{player.name}}</a>{{player.name}}</td>
+            <td>
+                <button (click)="changeStatus('Playing', idx)" [ngClass]="{'playing':player['game_'+game]=='Playing'}">Playing</button>
+                <button (click)="changeStatus('Not Playing', idx)" [ngClass]="{'notplaying':player['game_'+game]=='Not Playing'}">Not Playing</button>
+                <button (click)="changeStatus('Undecided', idx)" [ngClass]="{'undecided':player['game_'+game]=='Undecided'}">Undecided</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
